@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Digital Store</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="title">Digital Store</div>
+          <div class="sub">Fast checkout inside Telegram</div>
+        </div>
+        <div class="row">
+          <div class="pill" id="pillUser">...</div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="cardBody">
+            <label for="searchInput">Search</label>
+            <input id="searchInput" placeholder="Search products, games, amounts..." />
+            <div style="height: 8px"></div>
+            <div class="notice" id="searchHint">Tip: try “Netflix”, “Mobile Legends”, “60 Diamonds”.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardHeader">
+            <h2>Products</h2>
+            <div class="hint">Scroll →</div>
+          </div>
+          <div class="cardBody">
+            <div class="scrollRow" id="productsRow"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="cardHeader">
+            <h2>Game Currency</h2>
+            <div class="hint">Choose game</div>
+          </div>
+          <div class="cardBody">
+            <div class="row rowWrap">
+              <div class="col">
+                <label for="gameSelect">Game</label>
+                <select id="gameSelect"></select>
+              </div>
+              <div class="col">
+                <label>API</label>
+                <div class="pill" id="pillApi">...</div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="scrollRow" id="gameRow"></div>
+          </div>
+        </div>
+
+        <div class="notice">
+          <strong>Payment methods:</strong> KBZPay, WavePay, AyaPay.
+          Enter the last 6 digits of your transaction on checkout.
+        </div>
+
+        <div class="footer">Powered by Supabase + Express + Telegram Bot</div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      window.App.initIndex().catch((e) => {
+        document.getElementById("productsRow").innerHTML =
+          `<div class="notice"><strong>Error:</strong> ${String(e.message || e)}</div>`;
+      });
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="title">Checkout</div>
+          <div class="sub">Submit payment proof</div>
+        </div>
+        <div class="row">
+          <div class="pill" id="pillUser">...</div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card" id="checkoutCard">
+          <div class="cardHeader">
+            <h2>Order Summary</h2>
+            <div class="hint" id="pillApi">...</div>
+          </div>
+          <div class="cardBody">
+            <div class="kv">
+              <div class="k">Item</div>
+              <div class="v" id="itemTitle">...</div>
+              <div class="k">Total</div>
+              <div class="v" id="itemPrice">...</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="notice">
+              <strong>Pay using:</strong> KBZPay / WavePay / AyaPay<br />
+              Then enter the <strong>last 6 digits</strong> of your transaction ID.
+            </div>
+
+            <div style="height: 10px"></div>
+
+            <label for="txLast6">Transaction ID (last 6 digits)</label>
+            <input id="txLast6" inputmode="numeric" placeholder="e.g. 123456" maxlength="6" />
+            <div style="height: 10px"></div>
+
+            <div class="row">
+              <button class="btn btnBlue col" id="backBtn">Back</button>
+              <button class="btn btnGood col btnDisabled" id="submitBtn" disabled>Submit</button>
+            </div>
+
+            <div style="height: 10px"></div>
+            <div class="notice" id="status">Enter the last 6 digits of your transaction ID.</div>
+          </div>
+        </div>
+
+        <div class="footer">Admins confirm orders via Telegram bot</div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+      window.App.initCheckout().catch((e) => {
+        document.getElementById("status").textContent = String(e.message || e);
+      });
+    </script>
+  </body>
+</html>
+
