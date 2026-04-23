@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Telegram Mini App Store (Digital Products + Game Currency)
 
 Production-ready full-stack system:
@@ -130,3 +131,8 @@ POST body example:
 - Prefer setting Supabase **Row Level Security** off for these tables (since backend uses service role), or keep RLS on with strict policies for your use case.
 - Admin is **Telegram ID only** (no login UI).
 
+=======
+# telegram-miniapp-store
+YanRx4
+>>>>>>> 5a86341640f644f2e25b321b815fe1bc613e06cc
+# mini-app
